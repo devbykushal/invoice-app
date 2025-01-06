@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LanguageController;
 
 Route::get('/', function () {
     return redirect('/dashboard');
@@ -9,6 +10,6 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/invoice', [DashboardController::class, 'invoice'])->name('invoice');
-Route::get('/transaction', [DashboardController::class, 'transaction'])->name('transaction');
-
-
+Route::get('/invoice/transaction', [DashboardController::class, 'transaction'])->name('transaction');
+Route::get('lang/{locale}', [LanguageController::class, 'switchLanguage'])
+    ->name('lang');
