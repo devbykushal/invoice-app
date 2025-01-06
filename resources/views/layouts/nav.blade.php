@@ -1,30 +1,54 @@
 {{-- left nav bar --}}
 <nav class="flex flex-col bg-white w-[256px] h-screen shadow-sm border-r-[1px] border-[#e7e7e7]">
 
-    <h1 class="text-xl font-extrabold mt-2 px-6 py-4 text-[#2980B9] drop-shadow-lg">{{ __('messages.company') }}</h1>
+    <h1 class="text-2xl font-bold mt-2 px-6 py-4 text-[#2C3E50] drop-shadow-lg">{{ __('messages.company') }}</h1>
     <hr>
-    <a href="{{ route('dashboard') }}"
-        class="flex justify-start gap-1 px-6 py-4 hover:bg-[#f9f9f9] {{ request()->routeIs('dashboard') ? 'bg-[#f9f9f9]' : '' }}">
-        <img src="{{ asset('dash.svg') }}" class="w-[16px]" />
-        {{ __('messages.dashboard') }}
-    </a>
 
-    <a href="{{ route('invoice') }}"
-        class="flex justify-between gap-1 px-6 py-4 hover:bg-[#f9f9f9] {{ request()->routeIs('invoice') ? 'bg-[#f9f9f9]' : '' }}"
-        id="dropdownToggler">
-        <div class="flex gap-1">
-            <img src="{{ asset('invoice.svg') }}" class="w-[16px]" />
-            {{ __('messages.invoice') }}
-        </div>
-        <img src="{{ asset('down.svg') }}" class="w-[16px]" />
-    </a>
+    {{-- nav items --}}
+    @php
+        $navItems = [
+            ['route' => 'dashboard', 'icon' => 'dash.svg', 'label' => __('messages.dashboard')],
+            [
+                'route' => 'invoice',
+                'icon' => 'invoice.svg',
+                'label' => __('messages.invoice'),
+                'children' => [
+                    ['route' => 'transaction', 'icon' => 'transaction.svg', 'label' => __('messages.transaction')],
+                ],
+            ],
+        ];
+    @endphp
 
-    <a href="{{ route('transaction') }}"
-        class="flex justify-start gap-1 px-6 py-4 hover:bg-[#f9f9f9] {{ request()->routeIs('transaction') ? 'bg-[#f9f9f9]' : '' }}"
-        style="{{ request()->routeIs('invoice') || request()->routeIs('transaction') ? 'display: flex;' : 'display: none;' }}"
-        id="dropdown">
-        <img src="{{ asset('transaction.svg') }}" class="w-[16px]" />
-        {{ __('messages.transaction') }}
-    </a>
+    {{-- loop through each nav item --}}
+    @foreach ($navItems as $item)
+        @if (isset($item['children']))
+            <a href="{{ route($item['route']) }}"
+                class="flex justify-between gap-1 px-6 py-4 hover:bg-[#f9f9f9] {{ request()->routeIs($item['route']) ? 'bg-[#f9f9f9]' : '' }}"
+                id="dropdownToggler">
+                <div class="flex gap-1">
+                    <img src="{{ asset($item['icon']) }}" class="w-[16px]" />
+                    {{ $item['label'] }}
+                </div>
+                <img src="{{ asset('down.svg') }}" class="w-[16px]" />
+            </a>
+
+            {{-- loop through children items (e.g., Transaction) --}}
+            @foreach ($item['children'] as $child)
+                <a href="{{ route($child['route']) }}"
+                    class="flex justify-start gap-1 px-6 py-4 hover:bg-[#f9f9f9] {{ request()->routeIs($child['route']) ? 'bg-[#f9f9f9]' : '' }}"
+                    style="{{ request()->routeIs($item['route']) || request()->routeIs($child['route']) ? 'display: flex;' : 'display: none;' }}"
+                    id="dropdown">
+                    <img src="{{ asset($child['icon']) }}" class="w-[16px]" />
+                    {{ $child['label'] }}
+                </a>
+            @endforeach
+        @else
+            <a href="{{ route($item['route']) }}"
+                class="flex justify-start gap-1 px-6 py-4 hover:bg-[#f9f9f9] {{ request()->routeIs($item['route']) ? 'bg-[#f9f9f9]' : '' }}">
+                <img src="{{ asset($item['icon']) }}" class="w-[16px]" />
+                {{ $item['label'] }}
+            </a>
+        @endif
+    @endforeach
 
 </nav>

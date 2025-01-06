@@ -2,7 +2,7 @@
 
 return [
     'dashboard' => 'Dashboard',
-    'company' => 'NextGen Solutions',
+    'company' => 'Logic Tech',
     'invoice' => 'Invoice',
     'transaction' => 'Transaction',
     'home' => 'Home'

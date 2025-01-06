@@ -2,7 +2,7 @@
 
 return [
     'dashboard' => 'ダッシュボード',
-    'company' => 'ネクスジェン・ソリューションズ',
+    'company' => 'ロジック・テック',
     'invoice' => 'インボイス',
     'transaction' => 'トランザクション',
     'home' => 'ホーム'
