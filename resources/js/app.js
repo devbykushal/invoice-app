@@ -26,3 +26,14 @@ document.addEventListener('click', (e) => {
         languageSelect.style.display = "none";
     }
 });
+
+
+// invoice preview
+
+for (let i = 0; i < document.getElementsByClassName("invoice-preview").length; i++) {
+    const element = document.getElementsByClassName("invoice-preview")[i];
+    const invoiceId = element.getAttribute('data-id');
+    element.onclick = () => {
+        alert("yo"+invoiceId);
+    }
+}

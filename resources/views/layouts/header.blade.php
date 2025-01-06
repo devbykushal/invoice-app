@@ -31,6 +31,7 @@
 
     @php
         $segments = Request::segments();
+        // print_r($segments);
         $url = '';
     @endphp
 
@@ -61,7 +62,12 @@
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="2" d="m1 9 4-4-4-4" />
                                 </svg>
-                                {{ __("messages.$segment") }}
+
+                                @if (Lang::has("messages.$segment"))
+                                    {{ __("messages.$segment") }}
+                                @else
+                                    {{ $segment }}
+                                @endif
                             </a>
                         </div>
                     </li>
@@ -73,8 +79,14 @@
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" d="m1 9 4-4-4-4" />
                             </svg>
-                            <span
-                                class="text-sm font-medium text-gray-500  dark:text-gray-400">{{ __("messages.$segment") }}</span>
+                            <span class="text-sm font-medium text-gray-500  dark:text-gray-400">
+                                {{-- case: messages.5 on /invoice/transaction/5 hence checking Lang::has --}}
+                                @if (Lang::has("messages.$segment"))
+                                    {{ __("messages.$segment") }}
+                                @else
+                                    {{ $segment }}
+                                @endif
+                            </span>
                         </div>
                     </li>
                 @endif

@@ -1,5 +1,5 @@
 {{-- left nav bar --}}
-<nav class="flex flex-col bg-white w-[256px] h-screen shadow-sm border-r-[1px] border-[#e7e7e7]">
+<nav class="flex flex-col bg-white w-[256px] h-[100vh] shadow-sm border-r-[1px] border-[#e7e7e7]">
 
     <h1 class="text-2xl font-bold mt-2 px-6 py-4 text-[#2C3E50] drop-shadow-lg">{{ __('messages.company') }}</h1>
     <hr>

@@ -30,7 +30,7 @@
 </head>
 
 <body style="background: #ebebeb;">
-    <div class="flex">
+    <div class="flex h-full">
 
         @include('layouts.nav')
 
