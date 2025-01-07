@@ -7,7 +7,7 @@
             <a href="#" class="flex gap-2 align-middle" id="languageTrigger">
                 <img src="{{ asset(app()->getLocale() == 'en' ? 'en.svg' : 'jp.svg') }}"
                     alt="{{ app()->getLocale() == 'en' ? 'english' : 'japanese' }}" class="w-[16px]">
-                {{ app()->getLocale() == 'en' ? 'English' : 'Japan' }}
+                {{ app()->getLocale() == 'en' ? 'English' : '日本' }}
                 <img src="{{ asset('down.svg') }}" alt="down" class="w-[16px] mt-[2px]">
             </a>
 
@@ -20,7 +20,7 @@
                 <hr>
                 <a href="{{ route('lang', 'jp') }}" class="flex gap-2 align-middle">
                     <img src="{{ asset('jp.svg') }}" alt="japan" class="w-[16px]">
-                    Japan
+                    日本
                 </a>
             </div>
         </div>

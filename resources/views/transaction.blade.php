@@ -1,30 +1,20 @@
 @extends('layouts.app')
 
-@section('topNavTitle', 'Transactions')
+@section('topNavTitle', `{{ __('messages.transaction') }}`)
 
 @section('content')
     <div class="flex flex-col overflow-x-auto p-2 shadow-sm">
 
-        <div class="flex justify-between bg-white p-4">
-            <div class="relative">
-                <input type="text" class="px-4 py-2 border border-zinc-300 rounded-md outline-none" placeholder="Search...">
-                <img src="{{ asset('search.svg') }}" alt="search" class="w-[18px] absolute right-2 top-3">
-            </div>
-            <button class="flex gap-2 items-center shadow-sm px-6 py-2 bg-zinc-200 active:bg-zinc-300">
-                <img src="{{ asset('pdf.svg') }}" alt="pdf" class="w-[14px]">
-                Download
-                <img src="{{ asset('download.svg') }}" alt="pdf" class="w-[16px]">
-            </button>
-        </div>
+        <x-table-header />
 
         <table class="table-fixed min-w-full border-collapse bg-white shadow-sm">
             <thead class="bg-gray-100">
                 <tr>
-                    <th class="border-b px-4 py-4 text-start">Transaction ID</th>
-                    <th class="border-b px-4 py-4 text-start">Date</th>
-                    <th class="border-b px-4 py-4 text-start">Amount</th>
-                    <th class="border-b px-4 py-4 text-start">Method</th>
-                    <th class="border-b px-4 py-4 text-start">Invoice ID</th>
+                    <th class="border-b px-4 py-4 text-start">{{ __('messages.transaction_id') }}</th>
+                    <th class="border-b px-4 py-4 text-start">{{ __('messages.date') }}</th>
+                    <th class="border-b px-4 py-4 text-start">{{ __('messages.amount') }}</th>
+                    <th class="border-b px-4 py-4 text-start">{{ __('messages.method') }}</th>
+                    <th class="border-b px-4 py-4 text-start">{{ __('messages.invoice_id') }}</th>
                 </tr>
             </thead>
             @php
