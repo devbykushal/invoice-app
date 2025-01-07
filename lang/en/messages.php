@@ -18,6 +18,12 @@ return [
     'amount' => 'Amount',
     'method' => 'Method',
     'view' => 'View',
+    'paid' => 'Paid',
+    'partial' => 'Partial',
+    'unpaid' => 'Unpaid',
+    'total_amount' => 'Total Amount',
+    'due_date' => 'Due Date',
+    'view_all' => 'View All',
 
     // dashboard cards
     'total_income' => 'Total Income',

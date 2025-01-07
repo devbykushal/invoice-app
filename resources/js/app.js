@@ -42,14 +42,18 @@ function openModal(invoiceId){
     const modal = document.getElementById("modal");
     const invoiceData = invoices.find(i => i.invoice_id == invoiceId);
     const modalContent = document.getElementById("modalContent");
-    modalContent.innerHTML = `<h2 class="font-bold text-3xl">Invoice #${invoiceData.invoice_id}</h2>
+    modalContent.innerHTML = `<h2 class="font-bold text-3xl">${toCurrentLang('invoice')} #${invoiceData.invoice_id}</h2>
         <hr class="mt-2 mb-2">
-        <p class="flex justify-between bg-zinc-200 p-2"><strong>Customer Name:</strong> ${invoiceData.customer_name}</p>
-        <p class="flex justify-between bg-zinc-200 p-2 mt-1"><strong>Invoice Date:</strong> ${invoiceData.invoice_date}</p>
-        <p class="flex justify-between bg-zinc-200 p-2 mt-1"><strong>Due Date:</strong> ${invoiceData.due_date}</p>
-        <p class="flex justify-between bg-zinc-200 p-2 mt-1"><strong>Total Amount:</strong> $${invoiceData.total_amount}</p>
-        <p class="flex justify-between bg-zinc-200 p-2 mt-1"><strong>Status:</strong> ${invoiceData.status}</p>
-        <p class="flex justify-between bg-zinc-200 p-2 mt-1"><strong>Transactions:</strong> <a href='/invoice/transaction/${invoiceData.invoice_id}' target="_blank" class="text-blue-700">View All</a></p>`;
+        <p class="flex justify-between bg-zinc-200 p-2"><strong>${toCurrentLang('customer_name')}:</strong> ${invoiceData.customer_name}</p>
+        <p class="flex justify-between bg-zinc-200 p-2 mt-1"><strong>${toCurrentLang('invoice_date')}:</strong> ${invoiceData.invoice_date}</p>
+        <p class="flex justify-between bg-zinc-200 p-2 mt-1"><strong>${toCurrentLang('due_date')}:</strong> ${invoiceData.due_date}</p>
+        <p class="flex justify-between bg-zinc-200 p-2 mt-1"><strong>${toCurrentLang('total_amount')}:</strong> $${invoiceData.total_amount}</p>
+        <p class="flex justify-between bg-zinc-200 p-2 mt-1"><strong>${toCurrentLang('status')}:</strong> ${toCurrentLang(invoiceData.status.toLowerCase())}</p>
+        <p class="flex justify-between bg-zinc-200 p-2 mt-1"><strong>${toCurrentLang('transaction')}:</strong> <a href='/invoice/transaction/${invoiceData.invoice_id}' target="_blank" class="text-blue-700">${toCurrentLang('view_all')}</a></p>`;
 
     modal.style.display = "block";
+}
+
+function toCurrentLang(value) {
+    return langMessages[value];
 }

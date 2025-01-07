@@ -22,20 +22,24 @@
                     $invoices = json_decode($invoices, true);
                 @endphp
                 @foreach ($invoices as $invoice)
+                    @php
+                        $status = $invoice['status'];
+                        $statusLower = strtolower($status);
+                    @endphp
                     <tr>
                         <td class="border-b px-4 py-4">{{ $invoice['invoice_id'] }}</td>
                         <td class="border-b px-4 py-4">{{ $invoice['customer_name'] }}</td>
                         <td class="border-b px-4 py-4">{{ $invoice['invoice_date'] }}</td>
                         <td class="border-b px-4 py-4">
-                            @if ($invoice['status'] === 'Paid')
+                            @if ($status === 'Paid')
                                 <span
-                                    class="inline-block rounded-2xl text-[#27ae60] font-bold border text-sm py-1 px-4 w-[80px] text-center">{{ $invoice['status'] }}</span>
-                            @elseif($invoice['status'] === 'Partial')
+                                    class="inline-block rounded-2xl text-[#27ae60] font-bold border text-sm py-1 px-4 w-[80px] text-center">{{ __("messages.$statusLower") }}</span>
+                            @elseif($status === 'Partial')
                                 <span
-                                    class="inline-block rounded-2xl text-[#f39c12] font-bold border text-sm py-1 px-4 w-[80px] text-center">{{ $invoice['status'] }}</span>
+                                    class="inline-block rounded-2xl text-[#f39c12] font-bold border text-sm py-1 px-4 w-[80px] text-center">{{ __("messages.$statusLower") }}</span>
                             @else
                                 <span
-                                    class="inline-block rounded-2xl text-[#e74c3c] font-bold border text-sm py-1 px-4 w-[80px] text-center">{{ $invoice['status'] }}</span>
+                                    class="inline-block rounded-2xl text-[#e74c3c] font-bold border text-sm py-1 px-4 w-[80px] text-center">{{ __("messages.$statusLower") }}</span>
                             @endif
                         </td>
                         <td class="border-b px-4 py-4">
@@ -61,8 +65,7 @@
     </div>
 @endsection
 
-<div class="absolute bg-[#0000006e] w-full h-full z-50 px-40 py-20" id="modal" style="display:none;"
-    data-type="{{ $type ?? 'eternal' }}">
+<div class="absolute bg-[#0000006e] w-full h-full z-50 px-40 py-20" id="modal" style="display:none;">
     <div class="relative bg-white p-10 shadow-lg rounded-lg">
         <div class="absolute right-4 top-1 text-red-700 text-2xl cursor-pointer" id="modalCloser"
             onclick="this.parentNode.parentNode.style.display = 'none';">🗙</div>

@@ -18,6 +18,12 @@ return [
     'amount' => '金額',
     'method' => '方法',
     'view' => '表示',
+    'paid' => '有料',
+    'partial' => 'パーシャル',
+    'unpaid' => '未払い',
+    'total_amount' => '総額',
+    'due_date' => '期日',
+    'view_all' => '全てを見る',
 
     // dashboard cards
     'total_income' => '収入合計',

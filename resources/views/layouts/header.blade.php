@@ -6,9 +6,9 @@
         <div class="relative border-gray-100 border-[2px] p-2">
             <a href="#" class="flex gap-2 align-middle" id="languageTrigger">
                 <img src="{{ asset(app()->getLocale() == 'en' ? 'en.svg' : 'jp.svg') }}"
-                    alt="{{ app()->getLocale() == 'en' ? 'english' : 'japanese' }}" class="w-[16px]">
+                    alt="{{ app()->getLocale() == 'en' ? 'english' : 'japanese' }}" class="w-[16px] pointer-events-none">
                 {{ app()->getLocale() == 'en' ? 'English' : '日本' }}
-                <img src="{{ asset('down.svg') }}" alt="down" class="w-[16px] mt-[2px]">
+                <img src="{{ asset('down.svg') }}" alt="down" class="w-[16px] mt-[2px] pointer-events-none">
             </a>
 
             <div id="languageSelect" class="absolute flex flex-col bg-white shadow-lg p-2 w-full left-0 mt-3 gap-2"

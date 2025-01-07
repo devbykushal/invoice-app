@@ -27,6 +27,13 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     @stack('scripts')
+
+    <script>
+        const currentLang = @php echo json_encode(App::getLocale()); @endphp;
+        const langMessages = @php echo json_encode(trans('messages')); @endphp;
+    </script>
+
+
 </head>
 
 <body style="background: #ebebeb;">
