@@ -4,7 +4,7 @@ This is a very minimal Laravel-based Invoice Application designed for managing i
 
 ## Features
 
--   **Dashboard**: A sample page with displaying key metrics like Total Income, Customers, Reviews, and Pending Refunds in a clear and organized layout.
+-   **Dashboard**: A sample page displaying key metrics like Total Income, Customers, Reviews, and Pending Refunds in a clear and organized layout.
 -   **Invoices**:
     -   View a list of all invoices.
     -   Each invoice includes multiple associated transactions.
