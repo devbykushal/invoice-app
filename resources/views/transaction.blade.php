@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('topNavTitle', 'Transactions')
 
 @section('content')
     <div class="flex flex-col overflow-x-auto p-2 shadow-sm">
