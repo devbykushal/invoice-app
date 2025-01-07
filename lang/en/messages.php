@@ -4,7 +4,10 @@ return [
     'dashboard' => 'Dashboard',
     'company' => 'Logic Tech',
     'invoice' => 'Invoice',
+    'invoices' => 'Invoices',
     'transaction' => 'Transaction',
+    'transactions' => 'Transactions',
+    'transaction_history' => 'Transaction History',
     'home' => 'Home',
     'search' => 'Search',
     'download' => 'Download',
@@ -24,6 +27,11 @@ return [
     'total_amount' => 'Total Amount',
     'due_date' => 'Due Date',
     'view_all' => 'View All',
+    'credit_card' => 'Credit Card',
+    'bank_transfer' => 'Bank Transfer',
+    'cash' => 'Cash',
+    'paypal' => 'PayPal',
+    'not_found' => 'Oops! Page not found.',
 
     // dashboard cards
     'total_income' => 'Total Income',

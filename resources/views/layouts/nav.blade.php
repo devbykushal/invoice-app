@@ -11,9 +11,9 @@
             [
                 'route' => 'invoice',
                 'icon' => 'invoice.svg',
-                'label' => __('messages.invoice'),
+                'label' => __('messages.invoices'),
                 'children' => [
-                    ['route' => 'transaction', 'icon' => 'transaction.svg', 'label' => __('messages.transaction')],
+                    ['route' => 'transaction', 'icon' => 'transaction.svg', 'label' => __('messages.transactions')],
                 ],
             ],
         ];

@@ -49,7 +49,7 @@ function openModal(invoiceId){
         <p class="flex justify-between bg-zinc-200 p-2 mt-1"><strong>${toCurrentLang('due_date')}:</strong> ${invoiceData.due_date}</p>
         <p class="flex justify-between bg-zinc-200 p-2 mt-1"><strong>${toCurrentLang('total_amount')}:</strong> $${invoiceData.total_amount}</p>
         <p class="flex justify-between bg-zinc-200 p-2 mt-1"><strong>${toCurrentLang('status')}:</strong> ${toCurrentLang(invoiceData.status.toLowerCase())}</p>
-        <p class="flex justify-between bg-zinc-200 p-2 mt-1"><strong>${toCurrentLang('transaction')}:</strong> <a href='/invoice/transaction/${invoiceData.invoice_id}' target="_blank" class="text-blue-700">${toCurrentLang('view_all')}</a></p>`;
+        <p class="flex justify-between bg-zinc-200 p-2 mt-1"><strong>${toCurrentLang('transaction')}:</strong> <a href='/invoice/${invoiceData.invoice_id}/transaction' target="_blank" class="text-blue-700">${toCurrentLang('view_all')}</a></p>`;
 
     modal.style.display = "block";
 }
