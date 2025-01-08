@@ -13,7 +13,8 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://your.url.from.vercel.app",
+        "APP_URL": "https://invoice-app-rho-roan.vercel.app",
+        "ASSET_URL": "https://invoice-app-rho-roan.vercel.app",
         "APP_KEY": "base64:NEzVcMUahGN5aXGY9xEGzwHLAtr6iIkY+7cp+Yy9OnY=",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
