@@ -15,7 +15,7 @@ class PdfController extends Controller
             $invoices = Invoice::with('customer', 'invoiceItems')->get();
             $data = ['invoices' => json_encode($invoices->toArray())];
 
-            $fileName = 'Invoices.pdf';
+            $fileName = __('messages.invoices') . '.pdf';
             GeneratePdf::dispatchSync($type, null, 'pdf.invoices', $data, $fileName, true);
 
             $fileUrl = public_path() . "/pdfs/$fileName";
@@ -25,7 +25,7 @@ class PdfController extends Controller
         if ($type === 'transactions') {
             $transactions = Transaction::paginate(100);
 
-            $fileName = 'All Transactions.pdf';
+            $fileName = __('messages.transactions') . '.pdf';
             GeneratePdf::dispatchSync($type, null, 'pdf.transactions', ['transactions' => $transactions], $fileName);
 
             $fileUrl = public_path() . "/pdfs/$fileName";
@@ -49,7 +49,7 @@ class PdfController extends Controller
 
                 GeneratePdf::dispatchSync($type, $id, 'pdf.invoice', $data, __('messages.invoice') . $id);
 
-                $fileName = "Invoice$id.pdf";
+                $fileName = __('messages.invoice') . "$id.pdf";
                 $fileUrl = public_path() . "/pdfs/$fileName";
 
                 if ($isDownload) {
