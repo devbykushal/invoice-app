@@ -55,18 +55,18 @@
                             <img class="w-[18px] opacity-70" src="{{ asset('eye.svg') }}" alt="view invoice" />
                         </a>
 
-                        <a href="{{ route('transaction.single', ['invoice_id' => $invoice['id']]) }}"
+                        {{-- <a href="{{ route('transaction.single', ['invoice_id' => $invoice['id']]) }}"
                             class="inline-flex justify-between gap-2 text-sm bg-zinc-100 px-4 py-1 rounded-md hover:bg-zinc-200"
                             title="View Transactions">
                             {{ __('messages.transactions') }}
                             <img class="w-[18px] opacity-70" src="{{ asset('transaction.svg') }}"
                                 alt="view transactions" />
-                        </a>
+                        </a> --}}
 
                         <a href="{{ route('downloadPdf', ['type' => 'invoice', 'id' => $invoice['id']]) }}"
                             class="inline-flex justify-between gap-2 text-sm bg-zinc-100 px-4 py-1 rounded-md hover:bg-zinc-200"
-                            title="Download Invoice Pdf">
-                            {{ __('messages.download') }}
+                            title="Preview Invoice Pdf" target="_blank">
+                            {{ __('messages.preview') }}
                             <img class="w-[14px] opacity-70" src="{{ asset('pdf.svg') }}" alt="view transactions" />
                         </a>
                     </td>

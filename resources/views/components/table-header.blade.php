@@ -6,7 +6,7 @@
     </div>
     @if (isset($pdfDownloadHref))
         <a href="{{ $pdfDownloadHref }}"
-            class="flex gap-2 items-center shadow-sm px-6 py-2 bg-zinc-200 active:bg-zinc-300">
+            class="flex gap-2 items-center shadow-sm px-6 py-2 bg-zinc-200 active:bg-zinc-300" title="Download All Data">
             <img src="{{ asset('pdf.svg') }}" alt="pdf" class="w-[14px]">
             {{ __('messages.download') }}
             <img src="{{ asset('download.svg') }}" alt="pdf" class="w-[16px]">

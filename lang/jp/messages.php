@@ -2,7 +2,7 @@
 
 return [
     'dashboard' => 'ダッシュボード',
-    'company' => 'ロジック・テック',
+    'company' => 'マザーメディカル',
     'invoice' => 'インボイス',
     'invoices' => '請求書',
     'transaction' => 'トランザクション',
@@ -14,6 +14,7 @@ return [
     'invoice_id' => 'インボイスID',
     'invoice_number' => 'インボイス番号',
     'customer' => 'お客様',
+    'customer_id' => 'お客様ID',
     'customer_name' => '顧客名',
     'customer_email' => 'お客様のEメール',
     'customer_phone' => 'お客様電話番号',
@@ -27,6 +28,7 @@ return [
     'amount' => '金額',
     'method' => '方法',
     'view' => '表示',
+    'preview' => 'プレビュー',
     'paid' => '有料',
     'pending' => '申請中',
     'total_amount' => '総額',

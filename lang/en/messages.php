@@ -2,7 +2,7 @@
 
 return [
     'dashboard' => 'Dashboard',
-    'company' => 'Logic Tech',
+    'company' => 'Aama Medical',
     'invoice' => 'Invoice',
     'invoices' => 'Invoices',
     'transaction' => 'Transaction',
@@ -14,6 +14,7 @@ return [
     'invoice_id' => 'Invoice ID',
     'invoice_number' => 'Invoice Number',
     'customer' => 'Customer',
+    'customer_id' => 'Customer ID',
     'customer_name' => 'Customer Name',
     'customer_email' => 'Customer Email',
     'customer_phone' => 'Customer Phone',
@@ -27,6 +28,7 @@ return [
     'amount' => 'Amount',
     'method' => 'Method',
     'view' => 'View',
+    'preview' => 'Preview',
     'paid' => 'Paid',
     'pending' => 'Pending',
     'total_amount' => 'Total Amount',

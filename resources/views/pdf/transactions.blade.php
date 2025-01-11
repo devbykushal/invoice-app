@@ -1,26 +1,23 @@
-<html lang="en">
+@extends('layouts.pdf')
 
-<head>
-    <title>{{ __('messages.transactions') }}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+@section('title', __('messages.transactions'))
 
-<body class="flex px-6 pb-8 flex-col">
-
-    <div class="flex justify-center align-middle items-center text-3xl font-bold mb-4">{{ __('messages.transactions') }}
+@section('content')
+    <div style="text-align: center;font-size:24px;font-weight:bold;margin-bottom:20px;">{{ __('messages.transactions') }}
     </div>
 
-    <div class="flex justify-between mb-2">
-        <div class="font-semibold">
+    <div>
+        <div style="display:block;float:left;width:50%;font-weight: 600;">
             {{ __('messages.company') }}
         </div>
-        <span>{{ __('messages.date') }}: @php
-            echo date('m/d/Y');
-        @endphp</span>
+        <div style="display:block;float:left;width:50%;font-weight: 600;text-align:right;">{{ __('messages.date') }}:
+            @php
+                echo date('m/d/Y');
+            @endphp</div>
     </div>
 
-    <x-transaction-table :invoices="$invoices" class="!shadow-none" />
+    <div style="clear:both;margin-bottom:10px;"></div>
 
-</body>
+    <x-transaction-table :transactions="$transactions" class="!shadow-none" />
 
-</html>
+@endsection

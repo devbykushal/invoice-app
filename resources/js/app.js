@@ -57,7 +57,8 @@ function openModal(invoiceId){
         <p class="flex justify-between bg-zinc-200 py-1 px-2 mt-1"><strong>${toCurrentLang('due_date')}:</strong> ${invoiceData.due_date}</p>
         <p class="flex justify-between bg-zinc-200 py-1 px-2 mt-1"><strong>${toCurrentLang('total_amount')}:</strong> $${invoiceData.total_amount}</p>
         <p class="flex justify-between bg-zinc-200 py-1 px-2 mt-1"><strong>${toCurrentLang('status')}:</strong> ${toCurrentLang(invoiceData.status.toLowerCase())}</p>
-        <p class="flex justify-between bg-zinc-200 py-1 px-2 mt-1"><strong>${toCurrentLang('transaction')}:</strong> <a href='/invoice/${invoiceData.invoice_id}/transaction' target="_blank" class="text-blue-700">${toCurrentLang('view_all')}</a></p>`;
+        <p class="flex justify-between bg-zinc-200 py-1 px-2 mt-1"><strong>${toCurrentLang('transaction')}:</strong> <a href='/invoice/${invoiceData.id}/transaction' target="_blank" class="text-blue-700">${toCurrentLang('view_all')}</a></p>
+        <p class="flex justify-end"><a href="/pdf/invoice/${invoiceData.id}?download=true" class="flex justify-between w-[150px] gap-2 mt-2 text-center bg-zinc-200 p-2 text-blue-700 font-bold"><img src="pdf.svg" width="18px" /> ${toCurrentLang('download')} <img src="download.svg" width="18px" /></a></p>`;
 
     modal.style.display = "block";
 }

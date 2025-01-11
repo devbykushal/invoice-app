@@ -1,50 +1,62 @@
-<html lang="en">
+@extends('layouts.pdf')
 
-<head>
-    <title>{{ __('messages.invoice') }}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-    </style>
-</head>
+@section('title', __('messages.invoice'))
 
-<body class="flex px-6 flex-col box-border">
-
-    <div class="flex justify-center align-middle items-center text-3xl font-bold mb-4">{{ __('messages.invoice') }}
+@section('content')
+    <div style="text-align: center;font-size:24px;font-weight:bold;margin-bottom:20px;">{{ __('messages.invoice') }}
         #@php echo $invoice_id; @endphp
     </div>
 
-    <div class="flex justify-between mb-2">
-        <div class="font-semibold">
+    <div>
+        <div style="display:block;float:left;width:50%;font-weight: 600;">
             {{ __('messages.company') }}
         </div>
-        <span>{{ __('messages.date') }}: @php
-            echo date('m/d/Y');
-        @endphp</span>
+        <div style="display:block;float:left;width:50%;font-weight: 600;text-align:right;">{{ __('messages.date') }}:
+            @php
+                echo date('m/d/Y');
+            @endphp</div>
     </div>
 
+    <div style="clear: both;"></div>
+    <hr>
 
-    @php
-        $theInvoices = json_decode($invoices, true);
-        $invoice = array_filter($theInvoices, function ($invoice) use ($invoice_id) {
-            return $invoice['invoice_id'] == $invoice_id;
-        });
-    @endphp
 
-    <x-invoice-table :invoices="json_encode($invoice, true)" class="!shadow-none" noActions allData />
+    <div style="font-size: 18px;font-weight:bold;margin-bottom:5px;margin-top:10px;">
+        {{ __('messages.customer') }}
+    </div>
 
-    <div class="flex justify-between mt-4 mb-2">
-        <div class="font-semibold underline">
+    <table style="margin:0 0 20px 0;">
+        <thead class="bg-gray-100">
+            <tr>
+                <th class="border-b px-4 py-4 text-start">{{ __('messages.customer_id') }}</th>
+                <th class="border-b px-4 py-4 text-start">{{ __('messages.customer_name') }}</th>
+                <th class="border-b px-4 py-4 text-start">{{ __('messages.customer_email') }}</th>
+                <th class="border-b px-4 py-4 text-start">{{ __('messages.customer_phone') }}</th>
+                <th class="border-b px-4 py-4 text-start">{{ __('messages.customer_address') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="border-b px-4 py-4">{{ $customer->id }}</td>
+                <td class="border-b px-4 py-4">{{ $customer->name }}</td>
+                <td class="border-b px-4 py-4"><a href="mailto:{{ $customer->email }}">{{ $customer->email }}</a></td>
+                <td class="border-b px-4 py-4">{{ $customer->phone }}</td>
+                <td class="border-b px-4 py-4">{{ $customer->address }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="font-size: 18px;font-weight:bold;margin-bottom:5px;">
+        {{ __('messages.invoice') }}
+    </div>
+
+    <x-invoice-table :invoices="$invoices" class="!shadow-none" noActions allData />
+
+    <div style="margin-top: 20px;">
+        <div style="font-size: 18px;font-weight:bold;margin-bottom:5px;">
             {{ __('messages.transaction_history') }}
         </div>
-        <span>
-            Total: @php echo count(reset($invoice)['transactions']); @endphp
-        </span>
     </div>
 
-    <x-transaction-table :invoices="$invoices" :view_invoice_id="$invoice_id" class="!shadow-none" />
-</body>
-
-</html>
+    <x-transaction-table :transactions="$transactions" class="!shadow-none" />
+@endsection

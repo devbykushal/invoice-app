@@ -32,38 +32,4 @@ class DashboardController extends Controller
 
         return view('view_transaction', ['transactions' => $transactions, 'links' => $transactions->links()]);
     }
-
-    public function download($type, $id = null)
-    {
-
-        if ($type === 'invoices') {
-            // return pdf()
-            //     ->view("pdf.invoices", ['invoices' => json_encode($this->allData())])
-            //     ->footerView('pdf.footer')
-            //     ->margins(10, 0, 10, 0)
-            //     ->landscape()
-            //     ->name('All Invoices.pdf')
-            //     ->download();
-        }
-
-        if ($type === 'transactions') {
-            // return pdf()
-            //     ->view("pdf.transactions", ['invoices' => json_encode($this->allData())])
-            //     ->footerView('pdf.footer')
-            //     ->margins(10, 0, 10, 0)
-            //     ->landscape()
-            //     ->name('All Transactions.pdf')
-            //     ->download();
-        }
-
-        if ($type === 'invoice') {
-            // return pdf()
-            //     ->view("pdf.invoice", ['invoices' => json_encode($this->allData()), 'invoice_id' => $id])
-            //     ->footerView('pdf.footer')
-            //     ->margins(10, 0, 10, 0)
-            //     ->landscape()
-            //     ->name("Invoice#$id.pdf")
-            //     ->download();
-        }
-    }
 }
