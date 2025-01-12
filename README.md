@@ -13,12 +13,11 @@ This is a very minimal Laravel-based Invoice Application designed for managing i
 -   **Transactions**:
     -   View a list of all transactions.
     -   Download all transactions as PDF.
--   **Multi-language Support**: Invoices and their associated transactions can be exported as PDF documents in the selected language, powered by the **Spatie Laravel PDF** library.
+-   **Multi-language Support**: Invoices and their associated transactions can be exported as PDF documents in the selected language, powered by the **DomPdf** library.
 
 ## Technical Details
 
 -   **Laravel Framework**: Obviously!
--   **No Database**: Data is statically dumped and used within the application.
 -   **PDF Export**: Invoices and transactions can be exported as PDF documents in the selected language.
 -   **JavaScript Interactivity `app.js`**:
     -   Invoice previews in modals are handled using JavaScript, which receives invoice data passed from the controller.
